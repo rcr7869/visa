@@ -12,6 +12,9 @@ from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
+#from selenium import webdriver
+#from selenium.webdriver.chrome.service import Service
+
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
@@ -68,7 +71,9 @@ LOCAL_USE = config['CHROMEDRIVER'].getboolean('LOCAL_USE')
 # Optional: HUB_ADDRESS is mandatory only when LOCAL_USE = False
 HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
+#https://ais.usvisa-info.com/en-mx/niv/schedule/51702762/payment
 SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
+PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
 TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/times/{FACILITY_ID}.json?date=%s&appointments[expedite]=false"
@@ -151,8 +156,24 @@ def start_process():
     auto_action("Password", "id", "user_password", "send", PASSWORD, STEP_TIME)
     auto_action("Privacy", "class", "icheckbox", "click", "", STEP_TIME)
     auto_action("Enter Panel", "name", "commit", "click", "", STEP_TIME)
-    Wait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//a[contains(text(), '" + REGEX_CONTINUE + "')]")))
+    #Wait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//a[contains(text(), '" + REGEX_CONTINUE + "')]")))
     print("\n\tlogin successful!\n")
+    time.sleep(5)
+    print("\n\t after login successful!\n")
+
+    while 1:
+        try:
+            driver.get(PAYMENT_LINK)
+            time.sleep(5)
+            response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
+            print("payment")
+            print(response)
+        except Exception as e:
+            print(e.message)
+    #driver.find_element(By.CLASS_NAME,"for-layout")
+    #driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
+    #driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
+    #exit()
 
 def reschedule(date):
     time = get_time(date)
@@ -230,7 +251,11 @@ def info_logger(file_path, log):
 
 
 if LOCAL_USE:
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    service = Service()
+    options = webdriver.ChromeOptions()
+    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    driver = webdriver.Chrome(service=service, options=options)
 else:
     driver = webdriver.Remote(command_executor=HUB_ADDRESS, options=webdriver.ChromeOptions())
 
