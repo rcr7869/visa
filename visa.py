@@ -5,6 +5,7 @@ import requests
 import configparser
 from datetime import datetime
 
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
@@ -146,8 +147,19 @@ def auto_action(label, find_by, el_type, action, value, sleep_time=0):
         time.sleep(sleep_time)
 
 
+def stillrunning():
+    noww = datetime.now()
+    current_timee = noww.strftime("%M")
+    if int(current_timee) % 10 == 0:
+        send_notification("title", "still running.")
+        print("still running")
+
+
 def start_process():
     # Bypass reCAPTCHA
+
+
+    #time.sleep(120)
     driver.get(SIGN_IN_LINK)
     time.sleep(STEP_TIME)
     Wait(driver, 60).until(EC.presence_of_element_located((By.NAME, "commit")))
@@ -164,16 +176,23 @@ def start_process():
     while 1:
         try:
             driver.get(PAYMENT_LINK)
-            time.sleep(5)
-            response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
-            print("payment")
-            print(response)
+            all = driver.find_element(By.CLASS_NAME,"for-layout").text
+            response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
+            info_logger(LOG_FILE_NAME, all)
+            for cita in response:
+                if cita.split(",")[1].strip() == '2023':
+                    send_notification(cita, cita)
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            print(current_time)
+            stillrunning()
+            print(all)
+            time.sleep(120)
         except Exception as e:
-            print(e.message)
-    #driver.find_element(By.CLASS_NAME,"for-layout")
-    #driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
-    #driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
-    #exit()
+            print(e)
+            send_notification("error", "error")
+            time.sleep(300)
+            start_process()
 
 def reschedule(date):
     time = get_time(date)
@@ -327,3 +346,19 @@ send_notification(END_MSG_TITLE, msg)
 driver.get(SIGN_OUT_LINK)
 driver.stop_client()
 driver.quit()
+
+
+
+#driver.find_element(By.CLASS_NAME,"for-layout")
+#driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
+#driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
+#exit()
+
+#first = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0]
+
+#response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip()
+#response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")[0].split(",")[1].strip() == '2023'
+
+
+
+#print("", current_time, "|", first, "|", response == '2023')
