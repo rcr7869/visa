@@ -1,0 +1,242 @@
+07:40:58.042758:
+Ciudad Juarez No Appointments Available
+Guadalajara No Appointments Available
+Hermosillo No Appointments Available
+Matamoros No Appointments Available
+Merida No Appointments Available
+Mexico City No Appointments Available
+Monterrey No Appointments Available
+Nogales No Appointments Available
+Nuevo Laredo No Appointments Available
+Tijuana No Appointments Available
+07:42:00.483262:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 27 September, 2024
+Matamoros 2 December, 2024
+Merida 21 January, 2025
+Mexico City 10 September, 2025
+Monterrey 6 January, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:44:02.464327:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 27 February, 2025
+Matamoros 6 January, 2025
+Merida 21 January, 2025
+Mexico City 10 September, 2025
+Monterrey 6 January, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:46:04.520535:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 27 February, 2025
+Matamoros 6 January, 2025
+Merida 21 January, 2025
+Mexico City 10 September, 2025
+Monterrey 6 January, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 28 August, 2024
+Tijuana 18 February, 2025
+07:48:06.415458:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 27 February, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 10 September, 2025
+Monterrey 6 January, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:50:10.127758:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 27 February, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 24 September, 2025
+Monterrey 12 March, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:52:14.021473:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 24 September, 2025
+Monterrey 12 March, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:54:16.212990:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 24 September, 2025
+Monterrey 12 March, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:56:18.160296:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 22 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+07:58:20.224319:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 22 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 29 January, 2025
+Tijuana 18 February, 2025
+08:00:24.663670:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 25 March, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 11 September, 2023
+Nogales 31 December, 2024
+Nuevo Laredo 12 March, 2024
+Tijuana 18 February, 2025
+08:02:29.972854:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 7 April, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 12 February, 2025
+Tijuana 18 February, 2025
+08:04:32.140780:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 7 April, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 12 February, 2025
+Tijuana 18 February, 2025
+08:06:34.292701:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 22 April, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 12 February, 2025
+Tijuana 18 February, 2025
+08:08:36.191482:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 22 April, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 12 February, 2025
+Tijuana 18 February, 2025
+08:10:38.871921:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 20 March, 2024
+Matamoros 10 March, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 25 February, 2025
+Tijuana 18 February, 2025
+08:12:42.590461:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 10 March, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 5 February, 2025
+Nogales 31 December, 2024
+Nuevo Laredo 25 February, 2025
+Tijuana 18 February, 2025
+08:14:44.682328:
+Ciudad Juarez 24 July, 2025
+Guadalajara 14 May, 2025
+Hermosillo 5 March, 2025
+Matamoros 10 March, 2025
+Merida 21 January, 2025
+Mexico City 11 September, 2025
+Monterrey 12 March, 2025
+Nogales 16 May, 2025
+Nuevo Laredo 25 February, 2025
+Tijuana 18 February, 2025
+09:24:29.740718:
+Ciudad Juarez 18 August, 2025
+Guadalajara 23 September, 2025
+Hermosillo 11 March, 2025
+Matamoros 24 March, 2025
+Merida 10 June, 2025
+Mexico City 20 October, 2025
+Monterrey 11 June, 2025
+Nogales 16 May, 2025
+Nuevo Laredo 21 February, 2025
+Tijuana 5 March, 2025
+09:26:31.017198:
+Ciudad Juarez 18 August, 2025
+Guadalajara 24 September, 2025
+Hermosillo 11 March, 2025
+Matamoros 4 March, 2025
+Merida 10 June, 2025
+Mexico City 20 October, 2025
+Monterrey 11 June, 2025
+Nogales 16 May, 2025
+Nuevo Laredo 21 February, 2025
+Tijuana 5 March, 2025
+09:28:32.195856:
+Ciudad Juarez 18 August, 2025
+Guadalajara 24 September, 2025
+Hermosillo 11 March, 2025
+Matamoros 4 March, 2025
+Merida 10 June, 2025
+Mexico City 20 October, 2025
+Monterrey 11 June, 2025
+Nogales 16 May, 2025
+Nuevo Laredo 24 February, 2025
+Tijuana 1 April, 2025
+09:31:05.214210:
+Ciudad Juarez 20 February, 2025
+Guadalajara 24 September, 2025
+Hermosillo 11 March, 2025
+Matamoros 4 March, 2025
+Merida 30 December, 2024
+Mexico City 20 October, 2025
+Monterrey 13 May, 2024
+Nogales 16 May, 2025
+Nuevo Laredo 24 February, 2025
+Tijuana 22 May, 2025

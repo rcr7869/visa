@@ -74,7 +74,8 @@ HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
 #https://ais.usvisa-info.com/en-mx/niv/schedule/51702762/payment
 SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
-PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
+#PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
+PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
 TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/times/{FACILITY_ID}.json?date=%s&appointments[expedite]=false"
@@ -99,7 +100,8 @@ def send_notification(title, msg):
             print(response.body)
             print(response.headers)
         except Exception as e:
-            print(e.message)
+            print("outer error")
+            print(e)
     if PUSHOVER_TOKEN:
         url = "https://api.pushover.net/1/messages.json"
         data = {
@@ -287,7 +289,13 @@ if __name__ == "__main__":
             t0 = time.time()
             total_time = 0
             Req_count = 0
-            start_process()
+            while 1:
+                try:
+                    start_process()
+                except Exception as e:
+                    time.sleep(WORK_COOLDOWN_TIME * hour)
+                    print(e)
+
             first_loop = False
         Req_count += 1
         try:
