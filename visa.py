@@ -74,8 +74,8 @@ HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
 #https://ais.usvisa-info.com/en-mx/niv/schedule/51702762/payment
 SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
-#PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
-PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
+PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
+#;;;PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
 TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/times/{FACILITY_ID}.json?date=%s&appointments[expedite]=false"
@@ -182,8 +182,9 @@ def start_process():
             response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
             info_logger(LOG_FILE_NAME, all)
             for cita in response:
-                if cita.split(",")[1].strip() == '2023':
-                    send_notification(cita, cita)
+                if len(cita.split(",")) > 1:
+                    if cita.split(",")[1].strip() == '2023':
+                        send_notification(cita, cita)
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
             print(current_time)
@@ -273,15 +274,18 @@ def info_logger(file_path, log):
 
 if LOCAL_USE:
     #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    service = Service()
-    options = webdriver.ChromeOptions()
-    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    driver = webdriver.Chrome(service=service, options=options)
+    #service = Service()
+    #options = webdriver.ChromeOptions()
+    #options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    #driver = webdriver.Chrome(service=service, options=options)
+    print("if")
 else:
     driver = webdriver.Remote(command_executor=HUB_ADDRESS, options=webdriver.ChromeOptions())
 
 
 if __name__ == "__main__":
+    print("starting")
+
     first_loop = True
     while 1:
         LOG_FILE_NAME = "log_" + str(datetime.now().date()) + ".txt"
@@ -291,9 +295,17 @@ if __name__ == "__main__":
             Req_count = 0
             while 1:
                 try:
+                    print("starting")
+                    service = Service()
+                    options = webdriver.ChromeOptions()
+                    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+                    driver = webdriver.Chrome(service=service, options=options)
                     start_process()
                 except Exception as e:
-                    time.sleep(WORK_COOLDOWN_TIME * hour)
+                    #time.sleep(WORK_COOLDOWN_TIME * hour)
+                    driver.stop_client()
+                    driver.quit()
+                    time.sleep(120)
                     print(e)
 
             first_loop = False
