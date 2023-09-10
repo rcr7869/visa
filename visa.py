@@ -192,7 +192,7 @@ def start_process():
             current_time = now.strftime("%H:%M:%S")
             for cita in response:
                 if len(cita.split(",")) > 1:
-                    if cita.split(",")[1].strip() == '2025':
+                    if cita.split(",")[1].strip() == '2023':
                         send_notification(cita, cita+ " "+current_time)
             print(current_time)
             stillrunning()
