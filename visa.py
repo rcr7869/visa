@@ -3,6 +3,7 @@ import json
 import random
 import requests
 import configparser
+import re,uuid
 from datetime import datetime
 
 
@@ -76,10 +77,15 @@ HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
 #PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
 PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
+#PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51832735/payment"
+
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
 TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/times/{FACILITY_ID}.json?date=%s&appointments[expedite]=false"
 SIGN_OUT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_out"
+
+
+mac ="mac"
 
 JS_SCRIPT = ("var req = new XMLHttpRequest();"
              f"req.open('GET', '%s', false);"
@@ -152,8 +158,9 @@ def auto_action(label, find_by, el_type, action, value, sleep_time=0):
 def stillrunning():
     noww = datetime.now()
     current_timee = noww.strftime("%M")
+    current_timeee = noww.strftime("%H:%M:%S")
     if int(current_timee) % 10 == 0:
-        send_notification("title", "still running.")
+        send_notification("title", "still running. "+ mac+ "  "+ current_timeee)
         print("still running")
 
 
@@ -181,12 +188,12 @@ def start_process():
             all = driver.find_element(By.CLASS_NAME,"for-layout").text
             response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
             info_logger(LOG_FILE_NAME, all)
-            for cita in response:
-                if len(cita.split(",")) > 1:
-                    if cita.split(",")[1].strip() == '2023':
-                        send_notification(cita, cita)
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
+            for cita in response:
+                if len(cita.split(",")) > 1:
+                    if cita.split(",")[1].strip() == '2025':
+                        send_notification(cita, cita+ " "+current_time)
             print(current_time)
             stillrunning()
             print(all)
@@ -284,7 +291,13 @@ else:
 
 
 if __name__ == "__main__":
-    print("starting")
+
+    try:
+        mac = (':'.join(re.findall('..', '%012x' % uuid.getnode())))
+    except Exception as e:
+        print(e)
+    print("starting = ",mac)
+
 
     first_loop = True
     while 1:
