@@ -74,8 +74,8 @@ HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
 #https://ais.usvisa-info.com/en-mx/niv/schedule/51702762/payment
 SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
-PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
-#;;;PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
+#PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
+PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
 TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/times/{FACILITY_ID}.json?date=%s&appointments[expedite]=false"
