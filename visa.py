@@ -196,7 +196,7 @@ def start_process():
                     if cita.split(",")[1].strip() == '2023':
                         send_notification(cita, cita+ " "+current_time)
             print(current_time)
-            stillrunning()
+            #stillrunning()
             print(all)
             time.sleep(120)
         except Exception as e:
