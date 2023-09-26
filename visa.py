@@ -87,17 +87,15 @@ SIGN_OUT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_out"
 
 
 MAC = -1
-COUNTER = 0
-
 accounts = {
-    0: {
+    "0": {
         0: ["intheend7869@gmail.com", "123456789aA.", "51702762"]
     },
-    1: {
+    "1": {
         0: ["johnsmith78666@mail.com", "12345678", "51742857"],
         1: ["cuenta.superior51@gmail.com", "123456789aA.", "51834450"]
     },
-    2: {
+    "2": {
         0: ["cuenta.superior50@gmail.com", "123456789aA.", "51832735"],
     }
 }
@@ -180,14 +178,19 @@ def stillrunning():
         print("still running")
 
 
+counter = 0
+
+
 def start_process():
     # Bypass reCAPTCHA
+    global counter
 
-    USERNAME = accounts[MAC][COUNTER][0]
-    PASSWORD = accounts[MAC][COUNTER][1]
-    PAYMENT_LINK = accounts[MAC][COUNTER][2]
+    print("mac num ", MAC, counter)
+    USERNAME = accounts[MAC][counter][0]
+    PASSWORD = accounts[MAC][counter][1]
+    PAYMENT_LINK = accounts[MAC][counter][2]
 
-    print(USERNAME, PASSWORD, PAYMENT_LINK,COUNTER)
+    print(USERNAME, PASSWORD, PAYMENT_LINK,counter)
 
     #time.sleep(120)
     driver.get(SIGN_IN_LINK)
@@ -216,7 +219,7 @@ def start_process():
                     if cita.split(",")[1].strip() == '2023':
                         send_notification(cita, cita+ " "+current_time)
                 if "Appointments" in cita:
-                    COUNTER = (COUNTER+1) % len(accounts[MAC])
+                    counter = (counter+1) % len(accounts[MAC])
                     raise Exception("No appointments")
             print(current_time)
             #stillrunning()
@@ -322,7 +325,7 @@ if __name__ == "__main__":
         print(e)
     print("starting = ",mac)
     print("mac number == ",os.getenv('MAC'))
-
+    MAC = os.getenv('MAC')
 
     first_loop = True
     while 1:
