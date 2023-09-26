@@ -86,7 +86,21 @@ TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/ap
 SIGN_OUT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_out"
 
 
-mac ="mac"
+mac = -1
+counter = 0
+
+accounts = {
+    0: {
+        0: ["intheend7869@gmail.com", "123456789aA.", "51702762"],
+        1: ["cuenta.superior51@gmail.com", "123456789aA.", "51834450"],
+    },
+    1: {
+        0: ["johnsmith78666@mail.com", "12345678", "51742857"],
+    },
+    2: {
+        0: ["cuenta.superior50@gmail.com", "123456789aA.", "51832735"],
+    }
+}
 
 JS_SCRIPT = ("var req = new XMLHttpRequest();"
              f"req.open('GET', '%s', false);"
