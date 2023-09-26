@@ -5,7 +5,7 @@ import requests
 import configparser
 import re,uuid
 from datetime import datetime
-
+import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -298,6 +298,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     print("starting = ",mac)
+    print("mac number == ",os.getenv('MAC'))
 
 
     first_loop = True
