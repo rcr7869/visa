@@ -27,8 +27,8 @@ config.read('config.ini')
 
 # Personal Info:
 # Account and current appointment info from https://ais.usvisa-info.com
-USERNAME = config['PERSONAL_INFO']['USERNAME']
-PASSWORD = config['PERSONAL_INFO']['PASSWORD']
+#USERNAME = config['PERSONAL_INFO']['USERNAME']
+#PASSWORD = config['PERSONAL_INFO']['PASSWORD']
 # Find SCHEDULE_ID in re-schedule page link:
 # https://ais.usvisa-info.com/en-am/niv/schedule/{SCHEDULE_ID}/appointment
 SCHEDULE_ID = config['PERSONAL_INFO']['SCHEDULE_ID']
@@ -78,7 +78,7 @@ SIGN_IN_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_in"
 #PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51702762/payment"
 #PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51742857/payment"
 #PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51832735/payment"
-PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51834450/payment"
+#PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/51834450/payment"
 
 APPOINTMENT_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment"
 DATE_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/appointment/days/{FACILITY_ID}.json?appointments[expedite]=false"
@@ -86,16 +86,16 @@ TIME_URL = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{SCHEDULE_ID}/ap
 SIGN_OUT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/users/sign_out"
 
 
-mac = -1
-counter = 0
+MAC = -1
+COUNTER = 0
 
 accounts = {
     0: {
-        0: ["intheend7869@gmail.com", "123456789aA.", "51702762"],
-        1: ["cuenta.superior51@gmail.com", "123456789aA.", "51834450"],
+        0: ["intheend7869@gmail.com", "123456789aA.", "51702762"]
     },
     1: {
         0: ["johnsmith78666@mail.com", "12345678", "51742857"],
+        1: ["cuenta.superior51@gmail.com", "123456789aA.", "51834450"]
     },
     2: {
         0: ["cuenta.superior50@gmail.com", "123456789aA.", "51832735"],
@@ -113,6 +113,7 @@ JS_SCRIPT = ("var req = new XMLHttpRequest();"
 def send_notification(title, msg):
     print(f"Sending notification!")
     if SENDGRID_API_KEY:
+        USERNAME="something@gmail.com"
         message = Mail(from_email=USERNAME, to_emails=USERNAME, subject=msg, html_content=msg)
         try:
             sg = SendGridAPIClient(SENDGRID_API_KEY)
@@ -182,6 +183,11 @@ def stillrunning():
 def start_process():
     # Bypass reCAPTCHA
 
+    USERNAME = accounts[MAC][COUNTER][0]
+    PASSWORD = accounts[MAC][COUNTER][1]
+    PAYMENT_LINK = accounts[MAC][COUNTER][2]
+
+    print(USERNAME, PASSWORD, PAYMENT_LINK,COUNTER)
 
     #time.sleep(120)
     driver.get(SIGN_IN_LINK)
@@ -209,6 +215,9 @@ def start_process():
                 if len(cita.split(",")) > 1:
                     if cita.split(",")[1].strip() == '2023':
                         send_notification(cita, cita+ " "+current_time)
+                if "Appointments" in cita:
+                    COUNTER = (COUNTER+1) % len(accounts[MAC])
+                    raise Exception("No appointments")
             print(current_time)
             #stillrunning()
             print(all)
