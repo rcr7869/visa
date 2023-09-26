@@ -191,7 +191,8 @@ def start_process():
     PAYMENT_LINK = accounts[MAC][counter][2]
 
     print(USERNAME, PASSWORD, PAYMENT_LINK,counter)
-
+    PAYMENT_LINK = f"https://ais.usvisa-info.com/{EMBASSY}/niv/schedule/{PAYMENT_LINK}/payment"
+    print(PAYMENT_LINK)
     #time.sleep(120)
     driver.get(SIGN_IN_LINK)
     time.sleep(STEP_TIME)
