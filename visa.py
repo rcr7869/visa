@@ -228,7 +228,7 @@ def start_process():
             time.sleep(120)
         except Exception as e:
             print(e)
-            send_notification("error", "error")
+            send_notification("error", "error: "+str(e))
             time.sleep(300)
             start_process()
 
