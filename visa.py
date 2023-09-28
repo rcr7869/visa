@@ -221,6 +221,7 @@ def start_process():
                         send_notification(cita, cita+ " "+current_time)
                 if "Appointments" in cita:
                     counter = (counter+1) % len(accounts[MAC])
+                    send_notification("error", "error: "+USERNAME)
                     raise Exception("No appointments")
             print(current_time)
             #stillrunning()
@@ -228,7 +229,7 @@ def start_process():
             time.sleep(120)
         except Exception as e:
             print(e)
-            send_notification("error", "error: "+str(e))
+            send_notification("error", "error: ")
             time.sleep(300)
             start_process()
 
