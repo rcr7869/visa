@@ -226,7 +226,7 @@ def start_process():
             for cita in response:
                 if len(cita.split(",")) > 1:
                     if cita.split(",")[1].strip() == '2023':
-                        send_notification(cita, cita+ " "+current_time)
+                        send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
                 if "Appointments" in cita:
                     counter = (counter+1) % len(accounts[MAC])
                     raise Exception("No appointments")
