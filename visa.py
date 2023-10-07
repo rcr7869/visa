@@ -194,6 +194,7 @@ def start_process():
     global counter
 
     print("mac num ", MAC, counter)
+    info_logger(LOG_FILE_NAME, mac)
     USERNAME = accounts[MAC][counter][0]
     PASSWORD = accounts[MAC][counter][1]
     PAYMENT_LINK = accounts[MAC][counter][2]
@@ -226,11 +227,12 @@ def start_process():
             for cita in response:
                 if len(cita.split(",")) > 1:
                     if cita.split(",")[1].strip() == '2023':
-                        send_notification(cita, cita+ " "+current_time)
+                        send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
                 if "Appointments" in cita:
                     counter = (counter+1) % len(accounts[MAC])
                     raise Exception("No appointments")
             print(current_time)
+            info_logger(LOG_FILE_NAME, current_time)
             #stillrunning()
             print(all)
             time.sleep(120)
@@ -348,7 +350,10 @@ if __name__ == "__main__":
                     print("starting")
                     service = Service()
                     options = webdriver.ChromeOptions()
-                    options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+                    if int(MAC) > 9:
+                        options.binary_location = "/usr/bin/google-chrome-stable"
+                    else:
+                        options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
                     driver = webdriver.Chrome(service=service, options=options)
                     start_process()
                 except Exception as e:
