@@ -107,10 +107,10 @@ accounts = {
         3: ["cuenta.superior57@gmail.com", "123456789aA.", "52284994"],
     },
     "10": {
-        0: ["cuenta.superior50@gmail.com", "123456789aA.", "51832735"],
-        1: ["cuenta.superior53@gmail.com", "123456789aA.", "52284290"],
-        2: ["cuenta.superior58@gmail.com", "123456789aA.", "52285000"],
-        3: ["cuenta.superior57@gmail.com", "123456789aA.", "52284994"],
+        0: ["intheend7869@gmail.com", "123456789aA.", "51702762"],
+        1: ["cuenta.superior52@gmail.com", "123456789aA.", "52283977"],
+        2: ["cuenta.superior55@gmail.com", "123456789aA.", "52284975"],
+        3: ["cuenta.superior59@gmail.com", "123456789aA.", "52285006"],
     }
 }
 
