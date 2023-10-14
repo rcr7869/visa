@@ -362,7 +362,9 @@ if __name__ == "__main__":
                     options = webdriver.ChromeOptions()
                     if int(MAC) > 9:
                         options.binary_location = "/usr/bin/google-chrome-stable"
+                        print("using linux")
                     else:
+                        print("using mac")
                         options.binary_location = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
                     driver = webdriver.Chrome(service=service, options=options)
                     start_process()
