@@ -253,14 +253,17 @@ def start_process():
             response = driver.find_element(By.CLASS_NAME,"for-layout").text.split("\n")
             info_logger(LOG_FILE_NAME, all)
             now = datetime.now()
+            appointmentsCounter = 0
             current_time = now.strftime("%H:%M:%S")
             for cita in response:
                 if len(cita.split(",")) > 1:
                     if cita.split(",")[1].strip() == '2023':
                         send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
                 if "Appointments" in cita:
-                    counter = (counter+1) % len(accounts[MAC])
-                    raise Exception("No appointments")
+                    appointmentsCounter = appointmentsCounter + 1
+            if appointmentsCounter > 3:
+                counter = (counter+1) % len(accounts[MAC])
+                raise Exception("No appointments")
             print(current_time)
             info_logger(LOG_FILE_NAME, current_time)
             #stillrunning()
