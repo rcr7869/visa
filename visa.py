@@ -254,7 +254,7 @@ def start_process():
             info_logger(LOG_FILE_NAME, all)
             now = datetime.now()
             appointmentsCounter = 0
-            current_time = now.strftime("%H:%M:%S")
+            current_time = now.strftime("%-I:%M:%S")
             for cita in response:
                 if len(cita.split(",")) > 1:
                     if cita.split(",")[1].strip() == '2023':
@@ -363,6 +363,8 @@ else:
 
 if __name__ == "__main__":
 
+    current_time = datetime.now().strftime("%-I:%M:%S")
+    print(current_time)
     try:
         mac = (':'.join(re.findall('..', '%012x' % uuid.getnode())))
     except Exception as e:
