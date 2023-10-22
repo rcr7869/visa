@@ -222,7 +222,8 @@ counter = 0
 def start_process():
     # Bypass reCAPTCHA
     global counter
-
+    
+    print("Starting time ", datetime.now.strftime("%-I:%M:%S"))
     print("mac num ", MAC, counter)
     info_logger(LOG_FILE_NAME, mac)
     USERNAME = accounts[MAC][counter][0]
