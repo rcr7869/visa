@@ -263,12 +263,14 @@ def start_process():
             appointmentsCounter = 0
             current_time = now.strftime("%-I:%M:%S")
             for cita in response:
-                if len(cita.split(",")) > 1:
-                    if cita.split(",")[1].strip() == '2023':
-                        send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
+#                if len(cita.split(",")) > 1:
+#                    if cita.split(",")[1].strip() == '2023':
+#                        send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
+                if "Mexico" in cita and "February" in cita and "15" not in cita:
+                    send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
                 if "Appointments" in cita:
                     appointmentsCounter = appointmentsCounter + 1
-            if appointmentsCounter > 3:
+            if appointmentsCounter > 8:
                 counter = (counter+1) % len(accounts[MAC])
                 raise Exception("No appointments")
             print(current_time)
