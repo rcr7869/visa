@@ -266,7 +266,9 @@ def start_process():
 #                if len(cita.split(",")) > 1:
 #                    if cita.split(",")[1].strip() == '2023':
 #                        send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
-                if "Mexico" in cita and "February" in cita and "15" not in cita and "23" not in cita:
+                if "Mexico" in cita and "February" in cita:
+                    send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
+                if "Mexico" in cita and "March" in cita:
                     send_notification(cita, cita+ " "+current_time+" MAC:"+MAC)
                 if "Appointments" in cita:
                     appointmentsCounter = appointmentsCounter + 1
